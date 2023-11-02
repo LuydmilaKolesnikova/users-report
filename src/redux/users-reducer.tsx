@@ -49,9 +49,7 @@ export function getUsersData(name: string) {
     try {
       const response = await usersAPI.setUsersData(name);
       dispatch(setUsersData(response.data));
-    } catch (e) {
-      alert("No response from server");
-    }
+    } catch (e) {}
   };
 }
 
