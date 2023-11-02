@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  font-family: Proxima Nova, sans-serif;
+  font-weight: 400;
+  color: #8189a3;
+  font-size: 14px;
+}
+
+.appWrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+}

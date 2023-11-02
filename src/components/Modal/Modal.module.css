@@ -1,0 +1,85 @@
+.wrapper {
+  background: #bcc3d080;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.modal {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  border-radius: 16px;
+  gap: 40px;
+  background-color: #fff;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.infoBlock {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #262c40;
+}
+
+.closeIcon {
+  height: 20px;
+  width: 20px;
+  margin-top: 5px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.infoItem + .infoItem {
+  margin-top: 14px;
+}
+
+.caption {
+  min-width: 137px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #262c40;
+}
+
+.text {
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.extraInfoBlock {
+  margin-bottom: 12px;
+}
+.extraInfoTitle {
+  font-size: 18px;
+  line-height: 24px;
+  color: #262c40;
+  margin-bottom: 12px;
+}
+
+.extraInfoText {
+  font-size: 16px;
+  line-height: 18px;
+  text-align: left;
+}

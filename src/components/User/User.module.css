@@ -1,0 +1,43 @@
+.item {
+  width: 357px;
+  height: 314px;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0px 0px 20px 0px #0000001a;
+  letter-spacing: 0em;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #262c40;
+  text-align: left;
+}
+
+.info {
+  line-height: 20px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  height: 24px;
+}
+
+.infoItem + .infoItem {
+  margin-top: 12px;
+}
+
+.phoneIcon {
+  margin: 0px 5px;
+  width: 14px;
+  height: 24px;
+}
+
+.emailIcon {
+  margin-top: 5px;
+  width: 24px;
+  height: 14px;
+}
