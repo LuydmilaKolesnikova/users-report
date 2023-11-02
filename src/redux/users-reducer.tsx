@@ -1,4 +1,5 @@
 import { usersAPI } from "../api/usersAPI";
+import { initialState } from "./initialState";
 
 const SET_USERS_DATA = "SET_USERS_DATA";
 
@@ -25,18 +26,6 @@ export interface UserState {
 }
 
 export interface UsersDataState extends Array<UserState> {}
-
-let initialState: UsersDataState = [
-  {
-    name: "",
-    phone: "",
-    email: "",
-    address: "",
-    position_name: "",
-    department: "",
-    hire_date: "",
-  },
-];
 
 const usersReducer = (
   state: UsersDataState = initialState,
