@@ -3,14 +3,14 @@ import classnames from "classnames";
 import phone from "../../images/phone.svg";
 import email from "../../images/email.svg";
 import Modal from "../Modal/Modal";
-import { UserState } from "../../redux/users-reducer";
+import { UserInfo } from "../../redux/users-reducer";
 import ShowModalContext, {
   ShowModalContextType,
 } from "../../utils/context/ShowModalProvider";
 import { useContext } from "react";
 
 interface Props {
-  userData: UserState;
+  userData: UserInfo;
 }
 
 const User: React.FC<Props> = (props) => {

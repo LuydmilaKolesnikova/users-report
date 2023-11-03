@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./Report.module.css";
 import User from "../User/User";
-import { UsersDataState } from "../../redux/users-reducer";
+import { UsersList } from "../../redux/users-reducer";
 import { ShowModalProvider } from "../../utils/context/ShowModalProvider";
 
 interface Props {
-  usersData: UsersDataState;
-  getUsersData: (name: string) => void;
+  usersData: UsersList;
+  updateUsersData: (name: string) => void;
 }
 
 function formatPhoneNumber(phone: string) {
@@ -34,7 +34,7 @@ const Report: React.FC<Props> = (props) => {
 
   const onChangeInputText = (e: { currentTarget: HTMLInputElement }) => {
     setInputText(e.currentTarget.value);
-    props.getUsersData(e.currentTarget.value);
+    props.updateUsersData(e.currentTarget.value);
   };
 
   return (

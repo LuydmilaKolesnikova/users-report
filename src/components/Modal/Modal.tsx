@@ -1,5 +1,5 @@
 import styles from "./Modal.module.css";
-import { UserState } from "../../redux/users-reducer";
+import { UserInfo } from "../../redux/users-reducer";
 import close from "../../images/close.svg";
 import ShowModalContext, {
   ShowModalContextType,
@@ -7,15 +7,13 @@ import ShowModalContext, {
 import { useContext } from "react";
 
 interface Props {
-  userData: UserState;
+  userData: UserInfo;
 }
 
 const hireDateToSpecialFormat = (hire_date: string) => {
   const date = new Date(hire_date);
-  return `${date.getDate()}.${
-    date.getMonth() + 1
-  }.${date.getFullYear()}`;
-}
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+};
 
 const Modal: React.FC<Props> = (props) => {
   const { setShowModal } = useContext(ShowModalContext) as ShowModalContextType;
@@ -27,7 +25,12 @@ const Modal: React.FC<Props> = (props) => {
       <div className={styles.modal}>
         <div className={styles.top}>
           <div className={styles.title}>{props.userData.name}</div>
-          <img className={styles.closeIcon} src={close} alt="" onClick={() => setShowModal(false)}></img>
+          <img
+            className={styles.closeIcon}
+            src={close}
+            alt=""
+            onClick={() => setShowModal(false)}
+          ></img>
         </div>
         <div className={styles.infoBlock}>
           <div className={styles.infoItem}>

@@ -1,12 +1,12 @@
 import { instance } from "./instanceAPI";
-import { UsersDataState } from "../redux/users-reducer";
+import { UsersList } from "../redux/users-reducer";
 
 interface usersResponse {
-  data: UsersDataState;
+  data: UsersList;
 }
 
 export const usersAPI = {
-  setUsersData(name: string): Promise<usersResponse> {
+  getUsers(name: string): Promise<usersResponse> {
     return instance.get(`?term=${name}`);
   },
 };

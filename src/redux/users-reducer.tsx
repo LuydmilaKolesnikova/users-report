@@ -5,17 +5,17 @@ const SET_USERS_DATA = "SET_USERS_DATA";
 
 interface SetUsersDataAction {
   type: typeof SET_USERS_DATA;
-  usersData: UsersDataState;
+  usersData: UsersList;
 }
 
-export function setUsersData(usersData: UsersDataState): SetUsersDataAction {
+export function setUsersData(usersData: UsersList): SetUsersDataAction {
   return {
     type: SET_USERS_DATA,
-    usersData
+    usersData,
   };
 }
 
-export interface UserState {
+export interface UserInfo {
   name: string;
   phone: string;
   email: string;
@@ -25,12 +25,12 @@ export interface UserState {
   hire_date: string;
 }
 
-export interface UsersDataState extends Array<UserState> {}
+export type UsersList = UserInfo[];
 
 const usersReducer = (
-  state: UsersDataState = initialState,
+  state: UsersList = initialState,
   action: SetUsersDataAction
-): UsersDataState => {
+): UsersList => {
   switch (action.type) {
     case SET_USERS_DATA: {
       return action.usersData;
@@ -40,14 +40,12 @@ const usersReducer = (
   }
 };
 
-type SetUsersDataDispatchCallback = (
-  param: SetUsersDataAction
-) => UsersDataState;
+type SetUsersDataDispatchCallback = (param: SetUsersDataAction) => UsersList;
 
-export function getUsersData(name: string) {
+export function updateUsersData(name: string) {
   return async (dispatch: SetUsersDataDispatchCallback) => {
     try {
-      const response = await usersAPI.setUsersData(name);
+      const response = await usersAPI.getUsers(name);
       dispatch(setUsersData(response.data));
     } catch (e) {}
   };

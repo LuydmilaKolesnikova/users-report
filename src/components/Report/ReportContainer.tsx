@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 import Report from "./Report";
-import { getUsersData } from "../../redux/users-reducer";
+import { updateUsersData } from "../../redux/users-reducer";
 import { State } from "../../redux/redux-store";
-import { UsersDataState } from "../../redux/users-reducer";
+import { UsersList } from "../../redux/users-reducer";
 
 interface DispatchProps {
-  getUsersData: (name: string) => Promise<void>;
+  updateUsersData: (name: string) => Promise<void>;
 }
 
 export interface Props extends DispatchProps {
-  usersData: UsersDataState;
+  usersData: UsersList;
 }
 
 class ReportContainer extends React.Component<Props> {
   componentDidMount() {
-    this.props.getUsersData("");
+    this.props.updateUsersData("");
   }
 
   render() {
@@ -32,7 +32,7 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<State, DispatchProps, AnyAction>
 ) => ({
-  getUsersData: (name: string) => dispatch(getUsersData(name)),
+  updateUsersData: (name: string) => dispatch(updateUsersData(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReportContainer);
