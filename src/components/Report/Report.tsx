@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import styles from "./Report.module.css";
 import User from "../User/User";
 import { UsersList } from "../../redux/users-reducer";
 import { ShowModalProvider } from "../../utils/context/ShowModalProvider";
+import { debounce } from "lodash";
 
 interface Props {
   usersData: UsersList;
@@ -32,10 +33,15 @@ function formatPhoneNumber(phone: string) {
 const Report: React.FC<Props> = (props) => {
   let [inputText, setInputText] = useState("");
 
-  const onChangeInputText = (e: { currentTarget: HTMLInputElement }) => {
-    setInputText(e.currentTarget.value);
-    props.updateUsersData(e.currentTarget.value);
+  const onChangeInputText = (name: string) => {
+    setInputText(name);
+    debounceUpdateUsersData(name);
   };
+
+  const debounceUpdateUsersData = useCallback(
+    debounce(props.updateUsersData, 250),
+    []
+  );
 
   return (
     <div className={styles.reportWrapper}>
@@ -44,7 +50,7 @@ const Report: React.FC<Props> = (props) => {
           className={styles.searchInput}
           type="text"
           value={inputText}
-          onChange={onChangeInputText}
+          onChange={(e) => onChangeInputText(e.currentTarget.value)}
         />
       </div>
       <div className={styles.usersList}>
