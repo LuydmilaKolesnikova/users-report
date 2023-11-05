@@ -57,8 +57,8 @@ const Report: React.FC<Props> = (props) => {
         {props.usersData.map((user) => {
           user.phone = formatPhoneNumber(user.phone) || user.phone;
           return (
-            <ShowModalProvider>
-              <User key={user.name} userData={user} />
+            <ShowModalProvider key={user.name}>
+              <User userData={user} />
             </ShowModalProvider>
           );
         })}
